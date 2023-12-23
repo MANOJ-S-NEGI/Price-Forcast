@@ -1,11 +1,10 @@
 from datetime import datetime
-from Variable_artifects.artifact import PLOT_DIR, COMBINE_PLOT
-import os
+from Log_Connection.log_file import logging
 import matplotlib.pyplot as plt
 
 
 # function for plot prediction and rolling window(previous price)
-def combine_plot_function(dataframe_instance, predictions_instance):
+def combine_plot_function(dataframe_instance, predictions_instance, buffer):
     try:
         plt.figure(figsize=(13, 4))
 
@@ -67,17 +66,15 @@ def combine_plot_function(dataframe_instance, predictions_instance):
 
         # Setting grid
         plt.grid(True)
-
-        # Setting directory and path for plot Images
-        os.makedirs(PLOT_DIR, exist_ok=True)
-        plot_path = os.path.join(PLOT_DIR, COMBINE_PLOT)
         plt.legend()
         plt.xticks(rotation=45)
-        plt.savefig(plot_path)
+
+        # storing in buffer rather saving it
+        plt.savefig(buffer, format='png', bbox_inches='tight')
         plt.close()
 
     except Exception as e:
-        print(f"Error in combine_plot_function: {e}")
+        logging.info(f"Error in combine_plot_function: {e}")
 
 
 # class function 3: For date and time

@@ -9,10 +9,6 @@ ROOT_PATH = "D:/msn/pycharm_projects/Brentprice/secure-connect-oil.zip"
 CSV_FILE = "Brent_oil.csv"
 CSV_DIR = "Csv"
 
-# app file artifact
-PLOT_DIR = "static"
-COMBINE_PLOT = "combined_price_plot.png"
-
 # Trained model directory:
 MODEL_FILENAME = "SARIMAX_FORCAST_MODEL.joblib"
 MAIN_MODEL_DIR = "Saved_Model_dir"
