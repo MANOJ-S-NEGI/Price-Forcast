@@ -1,0 +1,26 @@
+# Ignore the env directory
+env/
+
+# Ignore the .env file
+.env
+
+# Ignore the Saved_Model_dir directory
+Saved_Model_dir/
+# Virtual environment
+venv/
+
+# Byte-compiled / optimized files
+__pycache__/
+
+# IDE-specific files and directories
+.vscode/
+*.pyc
+*.pyo
+*.pyd
+
+# ZIP files
+*.zip
+
+# Ignore specific ZIP file
+secure-connect-oil.zip
+

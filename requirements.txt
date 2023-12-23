@@ -1,0 +1,10 @@
+cassandra-driver~=3.28.0
+python-dotenv~=0.21.0
+pandas~=2.0.3
+statsmodels~=0.14.0
+plotly~=5.9.0
+flask~=3.0.0
+requests
+jsonify
+joblib~=1.2.0
+matplotlib

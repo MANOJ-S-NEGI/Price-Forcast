@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color: #313037;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            height: 100vh;
+            margin: 0;
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+
+        .topnav {
+            background-color: black;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 20%
+            z-index: 1000;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #808081;
+            color: white;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            margin-top: 70px; /* Adjust margin based on topnav height */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            height: 30%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 0px;
+            text-align: center;
+        }
+
+        .date-cell, .price-cell {
+            font-size: 14px; /* Set the font size for the cells */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column; /* Display form items vertically */
+            margin-top: 20px; /* Add margin at the top */
+            flex: 1; /* Take remaining width */
+        }
+
+        fieldset {
+            font-size: 12px;
+            line-height: 2.5;
+            margin-bottom: 1px; /* Add margin at the bottom */
+            border-top: 5px solid black; /* Add a black strip at the top */
+            padding-top: 0.1px; /* Add padding to separate content from the strip */
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #86D7C4;
+            color: #FFF;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #808081;
+        }
+
+        #plot-image-historical, #plot-image-preds {
+            width: 100%;
+            height: 30%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="topnav">
+    <a href="templates/about.html" class="about-link">About</a>
+    <a href="https://public.tableau.com/app/profile/manoj.negi/viz/BRENT_PRICE_MOVEMENT/Dashboard1" class="dash-link">Dashboard</a>
+</div>
+
+<div class="main-content">
+    <form action="{{url_for('predict')}}" method="post">
+        <fieldset>
+           <legend>FORECAST BRENT PRICE</legend>
+
+                    <table>
+                        <tr>
+                            <td>
+                                <table>
+
+                                    <tr>
+                                        <h2> PREVIOUS ROLLING WINDOW </h2>
+                                        <th>Date</th>
+                                        <th>Previous Price</th>
+                                    </tr>
+                                            {% for dataframe in dataframe %}
+                                    <tr>
+                                        <td class="date-cell">{{dataframe.Date}}</td>
+                                        <td class="price-cell">{{dataframe.Price}}</td>
+                                    </tr>
+                                            {% endfor %}
+                                 </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <h2> WEEK FORECAST</h2>
+                                        <th>Date</th>
+                                        <th>Predicted Lower Bound</th>
+                                        <th>Predicted Upper Bound</th>
+                                        <th> Mean Prediction</th>
+                                    </tr>
+                                            {% for prediction in predictions %}
+                                    <tr>
+                                            <td class="date-cell">{{ prediction.Date }}</td>
+                                            <td class="price-cell" style="color: red;">{{'%.3f'|format(prediction.Lower_Bound)}}</td>
+                                            <td class="price-cell" style="color: green;">{{'%.3f'|format(prediction.Upper_Bound)}}</td>
+                                            <td class="price-cell">{{'%.3f'|format(prediction.Mean_Price)}}</td>
+                                    </tr>
+                                            {% endfor %}
+                                </table>
+                            </td>
+                        </tr>
+                     </table>
+                    <table>
+                        <tr>
+                            <h2> FORECAST : PRICE MOVEMENT </h2>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img id="plot-image-preds" src="{{combine_plot}}" alt="Pred_Price Plot">
+                            </td>
+
+                        </tr>
+                    </table>
+             <br><br>
+            <input type="submit" value="Forecast"> <br>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

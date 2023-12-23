@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color: #313037;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            height: 100vh;
+            margin: 0;
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+
+        .topnav {
+            background-color: black;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 20%
+            z-index: 1000;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #808081;
+            color: white;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            margin-top: 70px; /* Adjust margin based on topnav height */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            height: 30%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 1px;
+            text-align: left;
+        }
+
+        .date-cell, .price-cell {
+            font-size: 24px; /* Set the font size for the cells */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column; /* Display form items vertically */
+            margin-top: 20px; /* Add margin at the top */
+            flex: 1; /* Take remaining width */
+        }
+
+        fieldset {
+            font-size: 12px;
+            line-height: 2.5;
+            margin-bottom: 1px; /* Add margin at the bottom */
+            border-top: 5px solid black; /* Add a black strip at the top */
+            padding-top: 0.1px; /* Add padding to separate content from the strip */
+        }
+
+        input[type="submit"] {
+            padding: 15px 25px;
+            font-size: 20px;
+            border-radius: 6px;
+            border: none;
+            background-color: #86D7C4;
+            color: #FFF;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: black;
+        }
+
+        h1 {
+            font-size: 28px; /* Increase font size for heading elements */
+            color: white; /* custom color */
+            font-family: Arial
+        }
+
+        p {
+            font-size: 18px; /* Increase font size for paragraph elements */
+            font-family: Arial
+        }
+
+        li {
+            font-size: 18px; /* Increase font size for list elements */
+           font-family: Arial
+        }
+    </style>
+</head>
+<body>
+
+<div class="topnav">
+    <a href="D:/msn/pycharm_projects/price_forecast/templates/about.html" class="about-link">About</a>
+    <a href="https://public.tableau.com/app/profile/manoj.negi/viz/BRENT_PRICE_MOVEMENT/Dashboard1" class="dash-link">Dashboard</a>
+</div>
+
+<div class="main-content">
+    <form action="{{url_for('predict')}}" method="post">
+        <fieldset>
+           <legend>FORECAST BRENT PRICE</legend>
+            <br>
+            <input type="submit" value="Forecast">
+            <h2 style="font-family: Arial;">Click To Forecast 7 Days Price Movement</h2>
+
+
+
+            <h1> About The Project </h1>
+
+            <p><b>Purpose is to calculate the week-long prediction from the last date as updated in the database.
+            Forecast Prediction Window can be customized accordingly 7 days will give optimised result</b></p>
+
+            <p>
+
+                The Brent oil  Price Forecasting system is designed to address the increasing need for accurate predictions of  brent prices,
+                allowing stakeholders in the energy sector to make informed decisions. By leveraging historical data, market trends, and relevant factors.
+                The system aims to provide reliable forecasts, contributing to improved strategic planning and cost management.
+
+            </p>
+            <p>
+
+                Brent crude is known for its relatively low sulfur content and high API gravity, which makes it a light and sweet crude oil.
+                Light crude oils have a lower density and flow more easily, while sweet crude oils contain less sulfur,
+                making them less corrosive and easier to refine into high-quality products like gasoline.
+                Brent crude is a crucial benchmark for global oil prices and serves as a reference point for pricing two-thirds of the world's internationally traded crude oil supplies.
+                It is used in setting the price of many of the world's crude oil exports and helps determine the cost of gasoline and other refined products in various regions.
+                The Brent crude oil price is often quoted alongside the WTI crude oil price as a key indicator of the global oil market.
+
+            </p>
+            <h1> Dataset Description</h1>
+            <p> The Project is trained on the Dataset of previous 10 Years of price history of Brent oil.
+                <li>Dataset columns contain: Date, Price </li>
+                <li>Total Number of datapoints :2555</li>
+            </p>
+
+            <h1> Model Description </h1>
+            <p>
+                <li>The model taken forecasting is Sarimax because of non-seasonal data.</li>
+                <li>MSE: 1.4 </li>
+                <li>Execution time :0.0047 approx</li>
+                <li>Model datapoints updated from Database : Cassandra</li>
+            </p>
+
+
+
+
+
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>
