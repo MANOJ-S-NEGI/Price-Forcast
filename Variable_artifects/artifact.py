@@ -11,7 +11,7 @@ CSV_DIR = "Csv"
 
 # app file artifact
 PLOT_DIR = "static"
-COMBINE_PLOT = "combined_price_plot.jpg"
+COMBINE_PLOT = "combined_price_plot.png"
 
 # Trained model directory:
 MODEL_FILENAME = "SARIMAX_FORCAST_MODEL.joblib"

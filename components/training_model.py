@@ -1,6 +1,6 @@
 # calling libraries
-from Support_module_dir.support_function import predict_function
-from Support_module_dir.support_function import DateTimeFunctionClass
+from Support_module_dir.support_function_predict import predict_function
+from Support_module_dir.support_function_plot import DateTimeFunctionClass
 from Variable_artifects.artifact import ORDER
 from Variable_artifects.artifact import MAIN_MODEL_DIR
 from Variable_artifects.artifact import MODEL_FILENAME
@@ -25,7 +25,7 @@ class Training:
                       function saves the model and return nothing
         """
 
-        # Both function called from support_function.py
+        # Both function called from support_function_plot.py
         current_time = self.date_time.current_time()
         current_date = self.date_time.current_date()
         try:

@@ -7,4 +7,4 @@ flask~=3.0.0
 requests
 jsonify
 joblib~=1.2.0
-matplotlib
+matplotlib~=3.8.2

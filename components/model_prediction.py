@@ -1,4 +1,4 @@
-from Support_module_dir.support_function import predict_function
+from Support_module_dir.support_function_predict import predict_function
 from Variable_artifects.artifact import CSV_FILE
 from Variable_artifects.artifact import CSV_DIR
 from datetime import datetime
