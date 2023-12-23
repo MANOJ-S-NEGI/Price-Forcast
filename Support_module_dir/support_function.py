@@ -54,7 +54,8 @@ def predict_function(trained_model, dataset):
             last_date = dataset.index[-2]
 
             # Generate a new DataFrame with the dates for the next x number of steps
-            new_dates = pd.date_range(start=last_date, periods=PERIODS, freq='B')[1:]  # 'B' stands for business day), [1:] Exclude the last_date
+            new_dates = pd.date_range(start=last_date, periods=PERIODS, freq='B')[
+                        1:]  # 'B' stands for business day), [1:] Exclude the last_date
 
             # Print or use the confidence interval
             predict_frame = pd.DataFrame({"Date": new_dates, "Lower_Bound": confidence_interval.iloc[:, 0],
@@ -66,11 +67,11 @@ def predict_function(trained_model, dataset):
 
 
 # function for plot prediction and rolling window(previous price)
-def combine_plot_function(dataframe_instance, predictions_instance):  # plot function for prediction data
+def combine_plot_function(dataframe_instance, predictions_instance):
     try:
         plt.figure(figsize=(13, 4))
 
-        # Plotting the existing DataFrame
+        # Scatter plot for the existing DataFrame
         plt.plot(dataframe_instance['Date'],
                  dataframe_instance['Price'],
                  marker='o',
@@ -82,7 +83,7 @@ def combine_plot_function(dataframe_instance, predictions_instance):  # plot fun
                     linestyle='--',
                     label=None)
 
-        # Plotting the prediction DataFrame after the dashed line
+        # Scatter plots for the prediction DataFrame after the dashed line
         plt.plot(predictions_instance['Date'],
                  predictions_instance['Lower_Bound'],
                  marker='o',
@@ -126,17 +127,19 @@ def combine_plot_function(dataframe_instance, predictions_instance):  # plot fun
                  [dataframe_instance['Price'].iloc[-1], predictions_instance['Mean_Price'].iloc[0]],
                  linestyle='--', color='blue')  # Separate line for Mean Price
 
+        # Setting grid
+        plt.grid(True)
+
         # Setting directory and path for plot Images
         os.makedirs(PLOT_DIR, exist_ok=True)
-        plot_path = os.path.join(PLOT_DIR,
-                                 COMBINE_PLOT)    # Save the plot to a static directory called form artifact module
+        plot_path = os.path.join(PLOT_DIR, COMBINE_PLOT)
         plt.legend()
         plt.xticks(rotation=45)
         plt.savefig(plot_path)
         plt.close()
 
     except Exception as e:
-        raise e
+        print(f"Error in combine_plot_function: {e}")
 
 
 # Creating a function to plot time series data
@@ -181,4 +184,3 @@ class DateTimeFunctionClass:
 
     def current_time(self):
         return self.curr_time
-

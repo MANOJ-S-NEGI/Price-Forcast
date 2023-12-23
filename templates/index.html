@@ -131,35 +131,36 @@
                             <td>
                                 <table>
                                     <tr>
-                                        <h2> WEEK FORECAST</h2>
-                                        <th>Date</th>
-                                        <th>Predicted Lower Bound</th>
-                                        <th>Predicted Upper Bound</th>
-                                        <th> Mean Prediction</th>
+                                        <h2> FORECAST : PRICE MOVEMENT </h2>
                                     </tr>
-                                            {% for prediction in predictions %}
                                     <tr>
-                                            <td class="date-cell">{{ prediction.Date }}</td>
-                                            <td class="price-cell" style="color: red;">{{'%.3f'|format(prediction.Lower_Bound)}}</td>
-                                            <td class="price-cell" style="color: green;">{{'%.3f'|format(prediction.Upper_Bound)}}</td>
-                                            <td class="price-cell">{{'%.3f'|format(prediction.Mean_Price)}}</td>
+                                        <td>
+                                            <img id="plot-image-preds" src="{{combine_plot}}" alt="Pred_Price Plot">
+                                        </td>
+
                                     </tr>
-                                            {% endfor %}
                                 </table>
+
                             </td>
                         </tr>
                      </table>
                     <table>
                         <tr>
-                            <h2> FORECAST : PRICE MOVEMENT </h2>
+                            <h2> WEEK FORECAST</h2>
+                            <th>Date</th>
+                            <th>Predicted Lower Bound</th>
+                            <th>Predicted Upper Bound</th>
+                            <th> Mean Prediction</th>
                         </tr>
+                        {% for prediction in predictions %}
                         <tr>
-                            <td>
-                                <img id="plot-image-preds" src="{{combine_plot}}" alt="Pred_Price Plot">
-                            </td>
-
+                            <td class="date-cell">{{ prediction.Date }}</td>
+                            <td class="price-cell" style="color: red;">{{'%.3f'|format(prediction.Lower_Bound)}}</td>
+                            <td class="price-cell" style="color: green;">{{'%.3f'|format(prediction.Upper_Bound)}}</td>
+                            <td class="price-cell">{{'%.3f'|format(prediction.Mean_Price)}}</td>
                         </tr>
-                    </table>
+                             {% endfor %}
+                        </table>
              <br><br>
             <input type="submit" value="Forecast"> <br>
         </fieldset>
