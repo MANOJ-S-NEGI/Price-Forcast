@@ -4,7 +4,6 @@ import os
 import matplotlib.pyplot as plt
 
 
-
 # function for plot prediction and rolling window(previous price)
 def combine_plot_function(dataframe_instance, predictions_instance):
     try:
@@ -79,36 +78,6 @@ def combine_plot_function(dataframe_instance, predictions_instance):
 
     except Exception as e:
         print(f"Error in combine_plot_function: {e}")
-
-
-# Creating a function to plot time series data
-def plot_time_series(timesteps, price, format='.', start=0, end=None, label=None):
-    """
-    Plots a timesteps (a series of points in time) against values (a series of values across timesteps).
-
-    Parameters
-    ---------
-    timesteps :  timesteps
-    price :  values across time
-    format : style of plot, default "-"
-    start : where to start the plot (setting a value will index from start of timesteps & values)
-    end : where to end the plot (setting a value will index from end of timesteps & values)
-    label : label to show on plot of values
-    """
-    try:
-        # Plot the series with a solid line
-        plt.plot(timesteps[start:end],
-                 price[start:end],
-                 linestyle='-',
-                 marker=format,
-                 label=label)
-        plt.xlabel("Time")
-        plt.ylabel("Brent Oil Price Movement")
-        if label:
-            plt.legend(fontsize=12)  # make label bigger
-        plt.grid(True)
-    except Exception as e:
-        raise e
 
 
 # class function 3: For date and time
