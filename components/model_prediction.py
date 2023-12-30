@@ -28,7 +28,7 @@ class Prediction:
         except Exception as e:
             raise e
 
-    def model_prediction(self):
+    def model_prediction(self, forecast_days):
         """
         Function created for Data Ingestion
 
@@ -45,7 +45,8 @@ class Prediction:
             # prediction function called from support_function material
             logging.info(f"Model Prediction Module : prediction function called")
             predictions, execution_time = predict_function(trained_model=model,
-                                                           dataset=dataset_frame.Price)
+                                                           dataset=dataset_frame.Price,
+                                                           forecast_days=forecast_days)
 
             # Convert timestamps to a more readable date format
             predictions['Date'] = predictions['Date'].apply(Prediction.convert_timestamp)

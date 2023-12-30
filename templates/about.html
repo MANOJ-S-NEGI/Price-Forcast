@@ -107,23 +107,34 @@
             font-size: 18px; /* Increase font size for list elements */
            font-family: Arial
         }
+
+        input[type="number"]
+         {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+         }
     </style>
 </head>
 <body>
 
 <div class="topnav">
     <a href="{{ url_for('home') }}" class="about-link">About</a>
-    <a href="https://public.tableau.com/app/profile/manoj.negi/viz/BrentPriceMovement/Dashboard2" class="dash-link">Dashboard</a>
+    <a href="https://public.tableau.com/app/profile/manoj.negi/viz/BrentPriceMovement/Dashboard2" target="_blank" rel="noopener noreferrer" class="dash-link">Dashboard</a>
 </div>
 
 <div class="main-content">
     <form action="{{url_for('predict')}}" method="post">
         <fieldset>
            <legend>FORECAST BRENT PRICE</legend>
-            <br>
-            <input type="submit" value="Forecast">
-            <h2 style="font-family: Arial;">Click To Forecast 7 Days Price Movement</h2>
 
+                <label for="forecast" style="font-family: Arial;">
+                    <h2>Enter Number of Days To Forecast Price Movement After 26-12-2023</h2>
+                </label>
+                <input type="number" id="forecast" name="forecast" required='required'>
+            <br><br>
+                <input type="submit" value="Forecast">
 
 
             <h1> About The Project </h1>

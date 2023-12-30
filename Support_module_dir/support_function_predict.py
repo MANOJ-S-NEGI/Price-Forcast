@@ -4,26 +4,25 @@ from Variable_artifects.artifact import FORECAST_DAY
 import pandas as pd
 
 
-def predict_function(trained_model, dataset):
+def predict_function(trained_model, dataset, forecast_days):
     """
     Function created for prediction
 
     Parameters
     ---------
-    trained_model : SARIMAX model
-        A trained SARIMAX model.
-    dataset : pandas DataFrame
-        A DataFrame containing the historical time series data.
+    trained_model : SARIMAX model-A trained SARIMAX model path
+    dataset : pandas DataFrame containing the historical time series data.
+    param forecast_days: how many days want to forecast
 
     Returns
     -------
-    predict_frame : pandas Dataframe         with predicted values and corresponding dates.
+    predict_frame : pandas Dataframe  with predicted values and corresponding dates.
     execution_time : float
         Execution time for making predictions.
     """
     try:
         # Specify the number of steps to forecast
-        FORECAST_STEPS = FORECAST_DAY
+        FORECAST_STEPS = forecast_days
         PERIODS = FORECAST_STEPS + 1
 
         # Suppress ValueWarning and FutureWarning
@@ -47,8 +46,10 @@ def predict_function(trained_model, dataset):
             last_date = dataset.index[-2]
 
             # Generate a new DataFrame with the dates for the next x number of steps
-            new_dates = pd.date_range(start=last_date, periods=PERIODS, freq='B')[
-                        1:]  # 'B' stands for business day), [1:] Exclude the last_date
+            new_dates = pd.date_range(
+                start=last_date,
+                periods=PERIODS,
+                freq='B')[1:]  # 'B' stands for business day), [1:] Exclude the last_date
 
             # Print or use the confidence interval
             predict_frame = pd.DataFrame({"Date": new_dates, "Lower_Bound": confidence_interval.iloc[:, 0],
