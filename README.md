@@ -2,7 +2,7 @@
 ---
 ---
 
-- PROJECT_LINK : <a herf="https://huggingface.co/spaces/msn-enginenova21/Forecast" target="_blank" rel="noopener noreferrer" >BRENTOIL</a>
+- PROJECT_LINK : <a href="https://huggingface.co/spaces/msn-enginenova21/Forecast" target="_blank" rel="noopener noreferrer" >Brent_Oil</a>
 - HLD:
 - LLD:
 - DASHBOARD FOR BRIEF HISTORICAL BACKGROUND OF BRENT OIL : <a href="https://public.tableau.com/app/profile/manoj.negi/viz/BrentPriceMovement/Dashboard2" target="_blank" rel="noopener noreferrer" class="dash-link">Dashboard</a>
