@@ -3,8 +3,10 @@
 ---
 
 - PROJECT_LINK : <a href="https://huggingface.co/spaces/msn-enginenova21/Forecast" target="_blank" rel="noopener noreferrer" >Brent_Oil</a>
-- HLD:
-- LLD:
+- HLD: <a href= "https://docs.google.com/document/d/1m1bHwTIXkSdtv61Cxfqf0UBFCTaCzcTNIMq6G3o4nu8/edit?usp=drive_link"> DOC </a>
+- LLD: <a href= "https://docs.google.com/document/d/1cJ0_RnyQzVVPSM0xthlctQpEF1sWZsJNpJ1SJUfvaf0/edit?usp=drive_link"> Doc </a>
+- PROJECT REPORT:  <a href= "https://docs.google.com/presentation/d/16BQQ69QJBEm98DojsSeIS9U6dM0ZUUlzpCPf5VX5i9c/edit?usp=sharing"> Report </a>
+- WIREFRAME:  <a href= "https://docs.google.com/document/d/1Lla7L67yT22FEoHM01ruVQdYFDlSrZ7pWQg29CP0Ey8/edit?usp=drive_link"> Doc </a>
 - DASHBOARD FOR BRIEF HISTORICAL BACKGROUND OF BRENT OIL : <a href="https://public.tableau.com/app/profile/manoj.negi/viz/BrentPriceMovement/Dashboard2" target="_blank" rel="noopener noreferrer" class="dash-link">Dashboard</a>
 
 
@@ -32,3 +34,7 @@ Read About the Project and view the project
 
 Note: Input is the price of the number of days ahead from 26-12-2023
 --------------------------
+DashBoard:
+![Screenshot 2023-12-30 222422](https://github.com/MANOJ-S-NEGI/Price-Forcast/assets/99602627/84f8a16f-76e5-4c39-8ee9-32411187d755)
+
+
