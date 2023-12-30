@@ -1,6 +1,5 @@
 import time
 import warnings
-from Variable_artifects.artifact import FORECAST_DAY
 import pandas as pd
 
 
