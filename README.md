@@ -1,5 +1,9 @@
 # BrentOil Forecast
 PROJECT_LINK <https://huggingface.co/spaces/msn-enginenova21/Forecast>
+HLD:
+LLD:
+DASHBOARD FOR BRIEF HISTORICAL BACKGROUND OF BRENT OIL : <a href="https://public.tableau.com/app/profile/manoj.negi/viz/BrentPriceMovement/Dashboard2" target="_blank" rel="noopener noreferrer" class="dash-link">Dashboard</a>
+
 
 User Requirements:
 -------
@@ -21,6 +25,7 @@ STEP 4: change the model path in app.py and Running on http://127.0.0.1:5000
 Read About the Project and view the project
  >> NOTE: if the path does not exist error will be unable to unpack 
 ---------------------------
+![Screenshot 2023-12-30 171330](https://github.com/MANOJ-S-NEGI/Price-Forcast/assets/99602627/b048fe3a-3261-4a4d-b76d-b04a37d74da3)
 
-
+Note: Input is the price of the number of days ahead from 26-12-2023
 --------------------------
